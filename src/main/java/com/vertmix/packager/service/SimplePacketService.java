@@ -40,7 +40,9 @@ public class SimplePacketService implements PacketService {
                     listeners.get(channel).forEach(packetSubscriber -> {
                         final Packet packet = morphia.fromDBObject(datastore, packetSubscriber.getClazz(), dbObject);
                         if (packet != null)
-                            packetSubscriber.execute(packetSubscriber.getClazz().cast(packet));
+                            if (packet.getClass().getSimpleName().equalsIgnoreCase(packetSubscriber.getClazz().getSimpleName())) {
+                                packetSubscriber.execute(packet);
+                            }
                     });
                 }
             }

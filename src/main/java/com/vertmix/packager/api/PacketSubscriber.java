@@ -13,6 +13,7 @@ public class PacketSubscriber<T extends Packet> {
 
     public void execute(Packet packet) {
         consumer.accept(clazz.cast(packet));
+
     }
 
     public Class<T> getClazz() {
