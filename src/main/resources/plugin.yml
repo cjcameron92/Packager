@@ -1,0 +1,5 @@
+main: com.vertmix.packager.plugin.PackagerPlugin
+version: 1.0
+name: Packager
+api-version: 1.18
+depend: [helper, helper-mongo, helper-redis]
